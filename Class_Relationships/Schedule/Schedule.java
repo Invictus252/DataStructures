@@ -9,7 +9,7 @@ public class Schedule
 
   public void addCourse(Course c)
   {
-    schedule.add(c);
+    schedule.add(c_count,c);
     c_count++;
   }
 
