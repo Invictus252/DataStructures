@@ -8,7 +8,7 @@ public class Main
     Pig p = new Pig("Porky");
     Duck d = new Duck("Daffy");
     System.out.println(p.makeSound());
-    System.out.println(d.makeSound());
+		System.out.println(d.makeSound());
 	}
 
 
