@@ -1,4 +1,4 @@
-public class Pig
+public class Pig implements IAnimal
 {
   private String m_name;
 

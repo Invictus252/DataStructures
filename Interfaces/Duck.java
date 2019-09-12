@@ -1,4 +1,4 @@
-public class Duck
+public class Duck implements IAnimal
 {
   private String m_name;
 
