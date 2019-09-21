@@ -85,7 +85,7 @@ public class Main
       menu += String.format("|%-28.25s|\n", "The answer to life,   ");
       menu += String.format("|%-28.25s|\n", "the universe and      ");
       menu += String.format("|%-28.25s|\n", "      everything   _42");
-      menu += String.format("|%-28.25s|\n", "  x || X  --->  EXIT  ");
+      menu += String.format("|%-28.25s|\n", "  x   --->   EXIT     ");
       menu += GFX.mborder;
       System.out.println(menu);
     }
