@@ -14,14 +14,14 @@ public class Main
 	    // print the tree...
       huff.printTree(root);
 
-      //String z = huff.getCode(root, 'A');
-      //System.out.println(z);
-      //
-      // String c = huff.getCode(root, 'D');
-      // System.out.println(c);
-      //
-      // String code = "1111100";
-      // System.out.printf(code + " decoded as: ");
-      // System.out.println(huff.decode(root, code));
+      String z = huff.getCode(root, 'X');
+      System.out.println(z);
+
+      String c = huff.getCode(root, 'D');
+      System.out.println(c);
+      
+      String code = "1111100";
+      System.out.printf(code + " decoded as: ");
+      System.out.println(huff.decode(root, code));
 	}
 }

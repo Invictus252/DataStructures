@@ -65,8 +65,16 @@ public class Tree implements Comparable<Tree>
 		// sorts trees in ascending order based on the tree's total,
 		// in the case of a tie sort in ascending order
 		// based on the tree's letter...
-    if(t2.getTotal() < this.m_total) return -1;
-    if(t2.getTotal() > this.m_total) return 1;
-    else return 0;
+    if(t2.getTotal() < this.m_total)
+			return -1;
+    if(t2.getTotal() > this.m_total)
+			return 1;
+		if(t2.getTotal() == this.m_total){
+			if(t2.getChar() < this.m_char)
+				return -1;
+			if(t2.getChar() > this.m_char)
+				return 1;
+		}
+		return 0;
 	}
 }
