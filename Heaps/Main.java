@@ -12,8 +12,7 @@ public class Main
       Integer[] ary = {2,5, 9, 3};
       List l = Arrays.asList(ary);
       Heap h = new Heap();
-      //h.insertAll(l);
-      System.out.println(h.size());
+      h.insertAll(l);
       System.out.println(h);
    }
 }

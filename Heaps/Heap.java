@@ -2,20 +2,16 @@ import java.util.*;
 
 public class Heap implements IHeap
 {
-  private int[] Heap;
-  private int size;
+  private static Integer[] Heap;
 
     public Heap()
     {
-      this.size = 0;
-      Heap = new int[2];
-      Heap[0] = 2147483647;
-      Heap[1] = 2600;
+      Heap = new Integer[0];
     }
 
     private boolean isLeaf(int nodeIndex)
     {
-        if (nodeIndex >= (size / 2) && nodeIndex <= size) {
+        if (nodeIndex >= (size() / 2) && nodeIndex <= size()) {
             return true;
         }
         return false;
@@ -29,58 +25,79 @@ public class Heap implements IHeap
         Heap[y] = tmp;
     }
 
-    private void moveUp(int nodeIndex)
+    public void moveUp(int nodeIndex)
     {
       if (isLeaf(nodeIndex))
         return;
       swap(getLeft(nodeIndex, Heap),nodeIndex);
-      //moveUp(getRight(nodeIndex,Heap));
     }
 
-    private void moveDown(int nodeIndex)
+    public void moveDown(int nodeIndex)
     {
       if (isLeaf(nodeIndex))
         return;
       swap(getRight(nodeIndex,Heap), nodeIndex);
-      //moveDown(getLeft(nodeIndex,Heap));
     }
 
-    private int getParent(int nodeIndex)
+    public int getParent(int nodeIndex)
     {
       return Heap[nodeIndex/2];
     }
 
-    private int getLeft(int nodeIndex, int ary[])
+    public int getLeft(int nodeIndex, Integer ary[])
     {
-      return ary[nodeIndex * 2];
+        if(size() > 4)
+          return ary[(nodeIndex * 2) + 1];
+        //System.out.println(ary[1]);
+        return ary[1];
     }
 
-    private int getRight(int nodeIndex, int ary[])
+    public int getRight(int nodeIndex, Integer ary[])
     {
-      return ary[(nodeIndex * 2) + 1];
+      return ary[(nodeIndex * 2) + 2];
     }
 
-  //   @Override
-  //   public void insert(int item)
-  //   {
-  //   }
-  //
-  //   @Override
-  //   public void insertAll(List items)
-  //   {
-  //   }
-  //
-  //@Override
+    @Override
+    public void insert(int item)
+    {
+      int i, newLen = Heap.length + 1;
+      Integer[] newArray = new Integer[newLen];
+      for (i = 0; i < Heap.length; ++i)	// copy items
+      {
+        newArray[i] = Heap[i];
+      }
+      Heap = newArray;
+      Heap[Heap.length -1] = item;
+    }
+
+    @Override
+    public void insertAll(List items)
+    {
+      int newLen = items.size();
+      Heap = new Integer[newLen];
+      for (int i = 0; i < items.size(); i++) {
+        int x =Integer.parseInt(items.get(i).toString());
+        Heap[i] =x;
+      }
+      for (int i = 0; i < Heap.length-1; i++) {
+        if(Heap[i] < Heap[i+1]){
+          swap(i,i+1);
+        }
+      }
+    }
+
+    @Override
     public int size()
     {
       return Heap.length;
     }
 
-  //   @Override
-  // 	public void clear()
-  // 	{
-  // 	}
-  //
+    @Override
+  	public void clear()
+  	{
+      Heap = new Integer[0];
+  	}
+
   //   @Override
   //   public int removeTop()
   //   {
@@ -89,10 +106,6 @@ public class Heap implements IHeap
     @Override
     public String toString()
     {
-        String s = "";
-        for(int x : Heap){
-          s += Integer.toString(x) + "\n";
-        }
-        return s;
+        return Arrays.toString(Heap);
     }
 }

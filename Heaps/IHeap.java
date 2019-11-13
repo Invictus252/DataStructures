@@ -3,11 +3,11 @@ import java.util.List;
 public interface IHeap
 {
 	// Adds an item to the heap.
-   //public void insert(int item);
+   public void insert(int item);
 
    // Inserts all the items in the list into
    // the heap.
-   //public void insertAll(List items);
+   public void insertAll(List items);
 
    // Returns the number of items in the heap.
    public int size();
@@ -19,5 +19,5 @@ public interface IHeap
    //public int removeTop();
 
    // Removes all items in the heap.
-   //public void clear();
+   public void clear();
 }
