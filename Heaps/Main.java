@@ -9,19 +9,32 @@ public class Main
 
       // here is some sample code that creates
        // a heap...
-      //Integer[] ary = {2,5, 9, 3};
-      Integer[] ary = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+      Integer[] ary = {2,5, 9, 3};
       List l = Arrays.asList(ary);
       Heap h = new Heap();
       h.insertAll(l);
       System.out.println(h);
-      System.out.println(h.removeTop());
-      System.out.println(h);
-      System.out.println(h.removeTop());
-      System.out.println(h);
-      System.out.println(h.removeTop());
-      System.out.println(h);
-      h.insert(8);
-      System.out.println(h);
+      // System.out.println(h.removeTop());
+      // System.out.println(h);
+      // System.out.println(h.removeTop());
+      // System.out.println(h);
+      // System.out.println(h.removeTop());
+      // System.out.println(h);
+      // h.insert(8);
+      // System.out.println(h);
+      // h.insert(10);
+      // System.out.println(h);
+      // h.insert(12);
+      // h.insert(34);
+      // h.insert(2);
+      // h.insert(9);
+      // System.out.println(h);
+      // System.out.println(h.removeTop());
+      // System.out.println(h);
+      // h.insert(1002);
+      // h.insert(876);
+      // h.insert(1304);
+      // h.insert(2305);
+      // System.out.println(h);
    }
 }
