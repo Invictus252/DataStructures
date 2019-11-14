@@ -48,13 +48,56 @@ public class Heap implements IHeap
     {
         if(size() > 4)
           return ary[(nodeIndex * 2) + 1];
-        //System.out.println(ary[1]);
         return ary[1];
     }
 
     public int getRight(int nodeIndex, Integer ary[])
     {
       return ary[(nodeIndex * 2) + 2];
+    }
+
+    private void sort()
+    {
+      for (int i = 1; i < Heap.length; i++) {
+        if(Heap[i-1] > Heap[i]){
+          swap(i-1,i);
+          sort();
+          }
+        System.out.println("in sort() ->  " + toString());
+        System.out.println("in sort()  Heap[i- 1] ->  " + Integer.toString(Heap[i-1]));
+        System.out.println("in sort()  Heap[i] ->  " + Integer.toString(Heap[i]));
+      }
+    }
+
+    private void sort(String s)
+    {
+      switch(s) {
+        case "MAX":
+        case "max":
+        case "M":
+          for (int i = 1; i < Heap.length; i++) {
+            if(Heap[i-1] > Heap[i]){
+              swap(i-1,i);
+              sort("M");
+              }
+            System.out.println("in sort(String s)[MAX] ->  " + toString());
+          }
+          break;
+        case "MIN":
+        case "min":
+        case "m":
+          for (int i = 1; i < Heap.length; i++) {
+            if(Heap[i-1] < Heap[i]){
+              swap(i-1,i);
+              sort("m");
+              }
+            System.out.println("in sort(String s)[MIN] ->  " + toString());
+          }
+          break;
+        default:
+          System.out.println("Ummm...No");
+          break;
+      }
     }
 
     @Override
@@ -65,9 +108,14 @@ public class Heap implements IHeap
       for (i = 0; i < Heap.length; ++i)	// copy items
       {
         newArray[i] = Heap[i];
+        if(newArray[i] == null){
+          newArray[i] = item;
+          while(i < Heap.length){
+            newArray[i+1] = null;
+            i++;
+          }
+        }
       }
-      Heap = newArray;
-      Heap[Heap.length -1] = item;
     }
 
     @Override
@@ -79,11 +127,8 @@ public class Heap implements IHeap
         int x =Integer.parseInt(items.get(i).toString());
         Heap[i] =x;
       }
-      for (int i = 0; i < Heap.length-1; i++) {
-        if(Heap[i] < Heap[i+1]){
-          swap(i,i+1);
-        }
-      }
+      // Could be user input to declare, Max was presented in class
+      sort();
     }
 
     @Override
@@ -98,11 +143,20 @@ public class Heap implements IHeap
       Heap = new Integer[0];
   	}
 
-  //   @Override
-  //   public int removeTop()
-  //   {
-  //   }
-  //
+    @Override
+    public int removeTop()
+    {
+      Integer tmp = null;
+      for (int i = 0; i < Heap.length-1; i++) {
+        tmp = Heap[Heap.length -1- i];
+        if(tmp != null){
+          Heap[Heap.length-1-i] = null;
+          return tmp;
+          }
+      }
+      return tmp;
+    }
+
     @Override
     public String toString()
     {

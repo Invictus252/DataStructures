@@ -16,7 +16,7 @@ public interface IHeap
    // The topmost item will either be the largest or
    // the smallest item in the heap, depending on the
    // the state of the heap (max or min).
-   //public int removeTop();
+   public int removeTop();
 
    // Removes all items in the heap.
    public void clear();
